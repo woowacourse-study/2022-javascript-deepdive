@@ -248,3 +248,36 @@ bindFunc(5, 6); // { x: 1 }, 1, 2, 5, 6
   console.log(func.name); // func
   console.log(bindFunc); // bound func
   ```
+
+<br>
+
+_밑에는 테코톡에서 다뤘던 내용~_
+
+<br>
+
+## 규칙 사이의 우선순위
+
+- 위에서 본 네 가지 규칙
+  1. 일반 함수 호출
+  2. 메서드 호출
+  3. 생성자 함수 호출
+  4. Function.prototype.apply/call/bind 메서드에 의한 간접 호출
+
+<br>
+
+### 우선순위
+
+```
+생성자 함수 호출
+→ apply/call/bind 메서드에 의한 간접 호출
+→ 메서드 호출
+→ 일반 함수 호출
+```
+
+<br>
+
+## 클래스에서의 this
+
+- 클래스 내부는 암묵적으로 **엄격 모드**
+  - 일반 메서드 선언 시에는 this로 **인스턴스 객체**가 바인딩
+  - 중첩 함수나 콜백 함수 등으로 일반 함수 선언 시에는 this로 **undefined**가 바인딩
