@@ -127,7 +127,7 @@ function foo(){
 var a = 1;
 foo(); // 1 
 ```
-- **기본 바인딩에서 this 는 전역 객체  (브라우저 - winodw / Node.js - global) 를 가리킵니다.**
+- **기본 바인딩에서 this 는 전역 객체  (브라우저 - window / Node.js - global) 를 가리킵니다.**
 - foo() 함수 호출 시, this.a 는 전역 객체에 저장된 a 를 가리킵니다.
 - **엄격 모드(strict mode)에서는 전역 객체가 기본 바인딩 대상에서 제외됩니다. 그래서 this 는 undefined 가 됩니다.**
 
