@@ -48,7 +48,7 @@ function identify(context){
 }
 
 function speak(context){
-  const greeting = `안녕 나는 ${identify.(context)}`;
+  const greeting = `안녕 나는 ${identify(context)}`;
   console.log(greeting);
 }
 
@@ -60,8 +60,8 @@ const coach2 = {
   name: "공원";
 }
 
-speak.call(coach1); // 안녕 나는 포비
-speak.call(coach2); // 안녕 나는 공원
+speak(coach1); // 안녕 나는 포비
+speak(coach2); // 안녕 나는 공원
 ```
 
 - 그런데 위의 코드는 사용패턴이 복잡해진다면, 매우 읽기 불편해질 것 같지 않나요? 계속해서 객체를 파라미터로 넘겨주어야 하니까요. 
