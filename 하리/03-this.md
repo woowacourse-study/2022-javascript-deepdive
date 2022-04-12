@@ -119,7 +119,7 @@ setTimeout(function () {
 
 // (3)
 document.body.innerHTML += `<button id="a">클릭</button>`;
-document.body.querySelector("#a").addEventListener("click", function (e) {
+document.body.querySelector('#a').addEventListener('click', function (e) {
   console.log(this, e);
 });
 ```
@@ -205,8 +205,8 @@ function Employee(name, gender, company) {
   this.company = company;
 }
 
-var by = new Student("보영", "female", "단국대");
-var jn = new Employee("재난", "male", "구골");
+var by = new Student('보영', 'female', '단국대');
+var jn = new Employee('재난', 'male', '구골');
 ```
 
 - by -> `Student { name: '보영', gender: 'female', school: '단국대' }`
@@ -266,6 +266,48 @@ _밑에는 테코톡에서 다뤘던 내용~_
 <br>
 
 ### 우선순위
+
+#### 메서드 호출 vs apply/call/bind 메서드에 의한 간접 호출
+
+```js
+const someone = {
+  name: 'Halee',
+  printName() {
+    console.log(this.name);
+  },
+};
+
+someone.printName.bind({ name: 'Zzanggu' })();
+```
+
+- 위 코드의 경우 `Zzanggu`가 출력됨
+  - 즉, apply/call/bind 메서드에 의한 간접 호출 > 메서드 호출
+
+<br>
+
+#### apply/call/bind 메서드에 의한 간접 호출 vs 생성자 함수 호출
+
+```js
+function setName(name) {
+  this.name = name;
+}
+let someone = {
+  name: 'Halee',
+};
+const setNameBindSomeone = setName.bind(someone);
+
+someone = new setNameBindSomeone('Zzanggu');
+console.log(someone.name);
+```
+
+- 위 코드도 마찬가지로 `Zzanggu`가 출력됨
+  - 즉, 생성자 함수 호출 > apply/call/bind 메서드에 의한 간접 호출
+
+<br>
+
+일반 함수 호출은 모든 경우에 해당되지 않을 때 자동 배정
+
+즉,
 
 ```
 생성자 함수 호출
