@@ -28,11 +28,11 @@ function speak(){
 }
 
 const coach1 = {
-  name: "포비";
+  name: "포비"
 }
 
 const coach2 = {
-  name: "공원";
+  name: "공원"
 }
 
 speak.call(coach1); // 안녕 나는 포비
